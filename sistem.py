@@ -1,22 +1,14 @@
 class oksigen:
-    def __init__(self, name):
-        self._tekanan_udara = 0
-        self._cadangan_oksigen = 0
-    @property
-    def tekanan_udara(self):
-        return self._tekanan_udara
-    @property
-    def cadangan_oksigen(self):
-        return self._cadangan_oksigen
-    @tekanan_udara.setter
-    def tekanan_udara(self, value):
-        self._tekanan_udara = value
-    @cadangan_oksigen.setter
-    def cadangan_oksigen(self, value):
-        self._cadangan_oksigen = value
+    def __init__(self,tekanan_udara,cadangan_oksigen,oksigen):
+        self._tekanan_udara = tekanan_udara
+        self.oksigen = oksigen
+        self._cadangan_oksigen = cadangan_oksigen
+    def info(self):
+        print(f"Tekanan udara: {self._tekanan_udara} kPa")
+        print(f"Cadangan oksigen: {self._cadangan_oksigen} liter")
+        print(f"Oksigen: {self.oksigen} liter")
 
 class laboratorium(oksigen):
     def __init__(self, name):
         super().__init__(name)
-        self._tekanan_udara = 100
-        self._cadangan_oksigen = 1000
+    self.energi 
