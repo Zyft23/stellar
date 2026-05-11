@@ -19,9 +19,15 @@ class RuangOksigen:
         else:
             self.__cadangan_oksigen -= jumlah
             self.__oksigen += jumlah
+            print("distribusi oksigen berhasil !")
 
 
 class laboratorium(RuangOksigen):
     def __init__(self, energi):
-        super().__init__(tekanan_udara=0, cadangan_oksigen=0, oksigen=0) 
+        super().__init__( 101.3, 1000, 0)
+        self.energi = energi
+    
+    def info_energi(self):
+        print(f"Energi laboratorium: {self.energi} watt")
+ 
 
