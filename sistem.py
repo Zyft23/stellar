@@ -1,6 +1,4 @@
 class base:
-    def __init__(self):
-    def
     pass
 
 class Hunian(base):
