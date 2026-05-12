@@ -1,4 +1,9 @@
-class RuangOksigen:
+class base:
+    def __init__(self):
+    def
+    pass
+
+class Hunian(base):
     def __init__(self,tekanan_udara,cadangan_oksigen,oksigen):
         self.__tekanan_udara = tekanan_udara
         self.__oksigen = oksigen
@@ -22,7 +27,7 @@ class RuangOksigen:
             print("distribusi oksigen berhasil !")
 
 
-class laboratorium(RuangOksigen):
+class laboratorium(Hunian):
     def __init__(self, energi):
         super().__init__( 101.3, 1000, 0)
         self.energi = energi
