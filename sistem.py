@@ -1,9 +1,16 @@
-class base:
+from abc import ABC, abstractmethod
+class base(ABC):
+    def __init__(self, tekanan_udara):
+        self.__tekanan_udara = tekanan_udara
+    @abstractmethod
+    def darurat(self):
+        print("Sistem darurat diaktifkan!")
     pass
 
 class Hunian(base):
-    def __init__(self,tekanan_udara,cadangan_oksigen,oksigen):
-        self.__tekanan_udara = tekanan_udara
+
+    def __init__(self,cadangan_oksigen,oksigen):
+        super().__init__(tekanan_udara=101.3)
         self.__oksigen = oksigen
         self.__cadangan_oksigen = cadangan_oksigen
     def info(self):
@@ -23,14 +30,20 @@ class Hunian(base):
             self.__cadangan_oksigen -= jumlah
             self.__oksigen += jumlah
             print("distribusi oksigen berhasil !")
+    def darurat(self):
+        super().darurat()
+        print("Sistem darurat hunian diaktifkan!")
 
 
-class laboratorium(Hunian):
+class laboratorium(base):
     def __init__(self, energi):
-        super().__init__( 101.3, 1000, 0)
+        super().__init__(tekanan_udara=101.3)
         self.energi = energi
     
     def info_energi(self):
         print(f"Energi laboratorium: {self.energi} watt")
+    def darurat(self):
+        super().darurat()
+        print("Sistem darurat laboratorium diaktifkan!")
  
 
