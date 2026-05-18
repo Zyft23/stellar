@@ -1,4 +1,5 @@
-from sistem import laboratorium, Hunian, time
+from sistem import laboratorium, Hunian, base
+import time
 
 def main():
     while True:
@@ -6,13 +7,14 @@ def main():
         print("1. Cek Status")
         print("2. Distribusi Oksigen dan energi")
         print("3. jalankan mode darurat")
-        print("4. Keluar")
+        print("4. Cek Kondisi Aman")
+        print("5. Keluar")
         pilihan = input("Pilih opsi: ")
         match pilihan:
             case "1":        
                 print("== Status ==")
-                Hunian.info()
-                laboratorium.info_energi()
+                print(Hunian.info())
+                print(laboratorium.info_energi())
             case "2": 
                 print("== Distribusi Oksigen dan Energi ==")
                 distribusi_oksigen = int(input("Masukkan jumlah oksigen yang akan didistribusikan (liter): "))
@@ -26,6 +28,10 @@ def main():
                     Hunian.darurat()
                     laboratorium.darurat()
                 print("Mode darurat diaktifkan! Semua sistem berjalan dengan prioritas tinggi!")
-            case "4":                  
+            case "4":
+                print("== Cek Kondisi Aman ==")
+                Hunian.kondisi_aman()
+                laboratorium.kondisi_aman()
+            case "5":                  
                 print("Keluar dari program. Sampai jumpa!")
                 break

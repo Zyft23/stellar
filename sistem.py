@@ -14,11 +14,10 @@ class Hunian(base):
         super().__init__(tekanan_udara=101.3)
         self.__oksigen = oksigen
         self.__cadangan_oksigen = cadangan_oksigen
+    @property
     def info(self):
-        print(f"Tekanan udara: {self.__tekanan_udara} kPa")
-        print(f"Cadangan oksigen: {self.__cadangan_oksigen} liter")
-        print(f"Oksigen: {self.__oksigen} liter")
-
+        return f"Hunian: Tekanan udara: {self._base__tekanan_udara} kPa, Oksigen: {self.__oksigen} liter, Cadangan Oksigen: {self.__cadangan_oksigen} liter"
+    
     @property
     def distribusi_oksigen(self):
         return self.__oksigen
@@ -32,7 +31,7 @@ class Hunian(base):
             self.__oksigen += jumlah
             print("distribusi oksigen berhasil !")
     def darurat(self):
-        super().darurat()
+        
         
 
         print("Sistem darurat hunian diaktifkan!")
@@ -56,5 +55,14 @@ class laboratorium(base):
     def info_energi(self):
         print(f"Energi laboratorium: {self.energi} watt")
     def darurat(self):
-        super().darurat()
+
         print("Sistem darurat laboratorium diaktifkan!")
+    def kondisi_aman(self):
+        if self.__tekanan_udara > 110:
+            print("Peringatan: Tekanan udara terlalu tinggi!")
+        elif self.__tekanan_udara <90:
+            print("Peringatan: Tekanan udara terlalu rendah!")
+        elif self.__oksigen < 90:
+            print("Peringatan: Oksigen hampir habis!")
+        else:
+            print("Kondisi aman. Tekanan udara dan oksigen dalam batas normal.")
