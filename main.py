@@ -18,6 +18,7 @@ def main():
                 print("== Status ==")
                 print(o1.info)
                 print(o2.info)
+                time.sleep(1)
             case "2": 
                 print("== Distribusi Oksigen dan Energi ==")
                 distribusi_oksigen = int(input("Masukkan jumlah oksigen yang akan didistribusikan (liter): "))
@@ -31,6 +32,7 @@ def main():
                 print("Distribusi oksigen dan energi sedang berlangsung...")
                 time.sleep(1)
                 print("Distribusi oksigen dan energi selesai!")
+                time.sleep(1)
             case "3":                  
                 print("== Mode Darurat ==")
                 darurat = input("Aktifkan mode darurat? (y/n): ")
@@ -38,10 +40,12 @@ def main():
                     o1.darurat()
                     o2.darurat()
                 print("Mode darurat diaktifkan! Semua sistem berjalan dengan prioritas tinggi!")
+                time.sleep(1)
             case "4":
                 print("== Cek Kondisi Aman ==")
                 o1.kondisi_aman()
                 o2.kondisi_aman()
+                time.sleep(1)
             case "5":                  
                 print("Keluar dari program. Sampai jumpa!")
                 break
