@@ -39,8 +39,12 @@ def main():
                 if darurat.lower() == 'y':
                     o1.darurat()
                     o2.darurat()
-                print("Mode darurat diaktifkan! Semua sistem berjalan dengan prioritas tinggi!")
-                time.sleep(1)
+                    print("Mode darurat diaktifkan! Semua sistem berjalan dengan prioritas tinggi!")
+                    time.sleep(1)
+                elif darurat.lower() == 'n':
+                    print("Mode darurat dibatalkan.")
+                else:
+                    print("Input tidak valid. Mode darurat dibatalkan.")
             case "4":
                 print("== Cek Kondisi Aman ==")
                 o1.kondisi_aman()
