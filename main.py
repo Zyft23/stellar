@@ -17,6 +17,7 @@ def main():
             case "1":        
                 print("== Status ==")
                 print(o1.info)
+                time.sleep(1)
                 print(o2.info)
                 time.sleep(1)
             case "2": 
@@ -42,6 +43,7 @@ def main():
                 darurat = input("Aktifkan mode darurat? (y/n): ")
                 if darurat.lower() == 'y':
                     o1.darurat()
+                    time.sleep(1)
                     o2.darurat()
                     print("Mode darurat diaktifkan! Semua sistem berjalan dengan prioritas tinggi!")
                     time.sleep(1)
@@ -52,10 +54,12 @@ def main():
             case "4":
                 print("== Cek Kondisi Aman ==")
                 o1.kondisi_aman()
+                time.sleep(1)
                 o2.kondisi_aman()
                 time.sleep(1)
             case "5":                  
                 print("Keluar dari program. Sampai jumpa!")
+                time.sleep(1)
                 break
 if __name__ == "__main__":
     main()

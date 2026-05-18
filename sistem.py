@@ -36,16 +36,17 @@ class Hunian(base):
                 self.__oksigen += jumlah
                 print(f"Berhasil")
     def darurat(self):
-            print("Sistem darurat hunian diaktifkan!")
+        self.__oksigen += 20
+        self.__cadangan_oksigen -= 20
     def kondisi_aman(self):
         if self.tekanan_udara > 110:
-            print("Peringatan: Tekanan udara terlalu tinggi!")
+            print("Peringatan: Tekanan udara terlalu tinggi! di hunian")
         elif self.tekanan_udara <90:
-            print("Peringatan: Tekanan udara terlalu rendah!")
+            print("Peringatan: Tekanan udara terlalu rendah! di hunian")
         elif self.__oksigen < 90:
-            print("Peringatan: Oksigen hampir habis!")
+            print("Peringatan: Oksigen hampir habis! di hunian")
         else:
-            print("Kondisi aman. Tekanan udara dan oksigen dalam batas normal.")
+            print("Kondisi aman. Tekanan udara dan oksigen dalam batas normal. di hunian")
         
 
 
@@ -70,16 +71,15 @@ class laboratorium(base):
             print(f"Berhasil")
     @property
     def info(self):
-        return f"Laboratorium: Tekanan udara: {self.tekanan_udara} kPa, Energi: {self.energi} kWh", f"Cadangan Energi: {self.__cadangan_energi} kWh"
+        return f"Laboratorium: Tekanan udara: {self.tekanan_udara} kPa, Energi: {self.energi} kWh, Cadangan Energi: {self.__cadangan_energi} kWh"
     def darurat(self):
         self.energi = 0
-        print("Sistem darurat laboratorium diaktifkan! semua energi di buang")
     def kondisi_aman(self):
         if self.tekanan_udara > 110:
-            print("Peringatan: Tekanan udara terlalu tinggi!")
+            print("Peringatan: Tekanan udara terlalu tinggi! di laboratorium")
         elif self.tekanan_udara < 90:
-            print("Peringatan: Tekanan udara terlalu rendah!")
+            print("Peringatan: Tekanan udara terlalu rendah! di laboratorium")
         elif self.energi > 100:
-            print("Peringatan: Energi terlalu tinggi!")
+            print("Peringatan: Energi terlalu tinggi! di laboratorium")
         else:
-            print("Kondisi aman. Tekanan udara dan Energi dalam batas normal.")
+            print("Kondisi aman. Tekanan udara dan Energi dalam batas normal. di laboratorium")
