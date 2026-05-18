@@ -24,8 +24,13 @@ def main():
                 o1.distribusi_oksigen = distribusi_oksigen
                 distribusi_energi = int(input("Masukkan jumlah energi yang akan didistribusikan (kWh): "))
                 o2.distribusi_energi = distribusi_energi
-                time.sleep(3) 
+                print("Distribusi oksigen dan energi sedang berlangsung.")
+                time.sleep(1) 
+                print("Distribusi oksigen dan energi sedang berlangsung..")
+                time.sleep(1)
                 print("Distribusi oksigen dan energi sedang berlangsung...")
+                time.sleep(1)
+                print("Distribusi oksigen dan energi selesai!")
             case "3":                  
                 print("== Mode Darurat ==")
                 darurat = input("Aktifkan mode darurat? (y/n): ")
