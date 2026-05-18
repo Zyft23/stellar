@@ -1,29 +1,31 @@
-from sistem import RuangOksigen, laboratorium
-modul = {
-    "ruang1": RuangOksigen(tekanan_udara=101.3, cadangan_oksigen=500, oksigen=300)
-         }
+from sistem import laboratorium, Hunian, time
+
 def main():
     while True:
         print("== Stellar base ==")
         print("1. Cek Status")
         print("2. Distribusi Oksigen dan energi")
-        print("3. Tambah modul")
-        print("4. jalankan mode darurat")
-        print("5. Keluar")
+        print("3. jalankan mode darurat")
+        print("4. Keluar")
         pilihan = input("Pilih opsi: ")
         match pilihan:
             case "1":        
                 print("== Status ==")
-                
+                Hunian.info()
+                laboratorium.info_energi()
             case "2": 
                 print("== Distribusi Oksigen dan Energi ==")
+                distribusi_oksigen = int(input("Masukkan jumlah oksigen yang akan didistribusikan (liter): "))
+                Hunian.distribusi_oksigen = distribusi_oksigen
+                time.sleep(3) 
                 print("Distribusi oksigen dan energi sedang berlangsung...")
-            case "3":
-                print("== Tambah Modul ==")
-                print("Modul baru sedang ditambahkan...")
-            case "4":                  
+            case "3":                  
                 print("== Mode Darurat ==")
+                darurat = input("Aktifkan mode darurat? (y/n): ")
+                if darurat.lower() == 'y':
+                    Hunian.darurat()
+                    laboratorium.darurat()
                 print("Mode darurat diaktifkan! Semua sistem berjalan dengan prioritas tinggi!")
-            case "5":                  
+            case "4":                  
                 print("Keluar dari program. Sampai jumpa!")
                 break

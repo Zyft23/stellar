@@ -4,11 +4,12 @@ class base(ABC):
         self.__tekanan_udara = tekanan_udara
     @abstractmethod
     def darurat(self):
-        print("Sistem darurat diaktifkan!")
-    pass
+        pass
+    @abstractmethod
+    def kondisi_aman(self):
+        pass
 
 class Hunian(base):
-
     def __init__(self,cadangan_oksigen,oksigen):
         super().__init__(tekanan_udara=101.3)
         self.__oksigen = oksigen
@@ -32,7 +33,19 @@ class Hunian(base):
             print("distribusi oksigen berhasil !")
     def darurat(self):
         super().darurat()
+        
+
         print("Sistem darurat hunian diaktifkan!")
+    def kondisi_aman(self):
+        if self.__tekanan_udara > 110:
+            print("Peringatan: Tekanan udara terlalu tinggi!")
+        elif self.__tekanan_udara <90:
+            print("Peringatan: Tekanan udara terlalu rendah!")
+        elif self.__oksigen < 90:
+            print("Peringatan: Oksigen hampir habis!")
+        else:
+            print("Kondisi aman. Tekanan udara dan oksigen dalam batas normal.")
+        
 
 
 class laboratorium(base):
@@ -45,5 +58,3 @@ class laboratorium(base):
     def darurat(self):
         super().darurat()
         print("Sistem darurat laboratorium diaktifkan!")
- 
-
