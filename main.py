@@ -2,7 +2,9 @@ from sistem import laboratorium, Hunian, base
 import time
 
 def main():
+
     while True:
+        
         print("== Stellar base ==")
         print("1. Cek Status")
         print("2. Distribusi Oksigen dan energi")
@@ -14,11 +16,13 @@ def main():
             case "1":        
                 print("== Status ==")
                 print(Hunian.info())
-                print(laboratorium.info_energi())
+                print(laboratorium.info())
             case "2": 
                 print("== Distribusi Oksigen dan Energi ==")
                 distribusi_oksigen = int(input("Masukkan jumlah oksigen yang akan didistribusikan (liter): "))
                 Hunian.distribusi_oksigen = distribusi_oksigen
+                distribusi_energi = int(input("Masukkan jumlah energi yang akan didistribusikan (kWh): "))
+                laboratorium.distribusi_energi = distribusi_energi
                 time.sleep(3) 
                 print("Distribusi oksigen dan energi sedang berlangsung...")
             case "3":                  

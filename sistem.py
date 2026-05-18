@@ -15,29 +15,28 @@ class base(ABC):
 class Hunian(base):
     def __init__(self,cadangan_oksigen,oksigen):
         super().__init__(tekanan_udara=101.3)
-        self.oksigen = oksigen
+        self.__oksigen = oksigen
         self.__cadangan_oksigen = cadangan_oksigen
     @property
     def info(self):
-        return f"Hunian: Tekanan udara: {self.tekanan_udara} kPa, Oksigen: {self.oksigen} liter, Cadangan Oksigen: {self.__cadangan_oksigen} liter"
+        return f"Hunian: Tekanan udara: {self.tekanan_udara} kPa, Oksigen: {self.__oksigen} liter, Cadangan Oksigen: {self.__cadangan_oksigen} liter"
     
     @property
     def distribusi_oksigen(self):
         return self.__oksigen
-
     @distribusi_oksigen.setter
     def distribusi_oksigen(self, jumlah):
         if jumlah > self.__cadangan_oksigen:
             print("Tidak cukup cadangan oksigen!")
         else:
-            self.__cadangan_oksigen -= jumlah
-            self.__oksigen += jumlah
+            if self.__oksigen + jumlah > 100:
+                print("Peringatan: Oksigen akan melebihi batas maksimum!")
+            else:
+                self.__cadangan_oksigen -= jumlah
+                self.__oksigen += jumlah
             print("distribusi oksigen berhasil !")
     def darurat(self):
-        
-        
-
-        print("Sistem darurat hunian diaktifkan!")
+            print("Sistem darurat hunian diaktifkan!")
     def kondisi_aman(self):
         if self.tekanan_udara > 110:
             print("Peringatan: Tekanan udara terlalu tinggi!")
@@ -54,18 +53,24 @@ class laboratorium(base):
     def __init__(self, energi):
         super().__init__(tekanan_udara=101.3)
         self.energi = energi
-    
-    def info_energi(self):
-        print(f"Energi laboratorium: {self.energi} watt")
+    def distribusi_energi(self, jumlah):
+        if self.energi + jumlah > 100:
+            print("Peringatan: Energi akan melebihi batas maksimum!")
+        else:
+            self.energi += jumlah
+            print("distribusi energi berhasil !")
+            
+    def info(self):
+        return f"Laboratorium: Tekanan udara: {self.tekanan_udara} kPa, Energi: {self.energi} kWh"
     def darurat(self):
-
-        print("Sistem darurat laboratorium diaktifkan!")
+        self.energi = 0
+        print("Sistem darurat laboratorium diaktifkan! semua energi di buang")
     def kondisi_aman(self):
         if self.tekanan_udara > 110:
             print("Peringatan: Tekanan udara terlalu tinggi!")
         elif self.tekanan_udara < 90:
             print("Peringatan: Tekanan udara terlalu rendah!")
-        elif self.oksigen < 90:
-            print("Peringatan: Oksigen hampir habis!")
+        elif self.energi > 100:
+            print("Peringatan: Energi terlalu tinggi!")
         else:
-            print("Kondisi aman. Tekanan udara dan oksigen dalam batas normal.")
+            print("Kondisi aman. Tekanan udara dan Energi dalam batas normal.")
