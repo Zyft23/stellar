@@ -21,18 +21,22 @@ def main():
                 time.sleep(1)
             case "2": 
                 print("== Distribusi Oksigen dan Energi ==")
-                distribusi_oksigen = int(input("Masukkan jumlah oksigen yang akan didistribusikan (liter): "))
-                o1.distribusi_oksigen = distribusi_oksigen
-                distribusi_energi = int(input("Masukkan jumlah energi yang akan didistribusikan (kWh): "))
-                o2.distribusi_energi = distribusi_energi
-                print("Distribusi oksigen dan energi sedang berlangsung.")
-                time.sleep(1) 
-                print("Distribusi oksigen dan energi sedang berlangsung..")
-                time.sleep(1)
-                print("Distribusi oksigen dan energi sedang berlangsung...")
-                time.sleep(1)
-                print("Distribusi oksigen dan energi selesai!")
-                time.sleep(1)
+                try:                    
+                    distribusi_oksigen = int(input("Masukkan jumlah oksigen yang akan didistribusikan (liter): "))
+                    o1.distribusi_oksigen = distribusi_oksigen
+                    distribusi_energi = int(input("Masukkan jumlah energi yang akan didistribusikan (kWh): "))
+                    o2.distribusi_energi = distribusi_energi
+                    print("Distribusi oksigen dan energi sedang berlangsung.")
+                    time.sleep(1) 
+                    print("Distribusi oksigen dan energi sedang berlangsung..")
+                    time.sleep(1)
+                    print("Distribusi oksigen dan energi sedang berlangsung...")
+                    time.sleep(1)
+                    print("Distribusi oksigen dan energi selesai!")
+                    time.sleep(1)
+                except ValueError:
+                    print("Input tidak valid. Pastikan memasukkan angka.")
+                    continue
             case "3":                  
                 print("== Mode Darurat ==")
                 darurat = input("Aktifkan mode darurat? (y/n): ")
