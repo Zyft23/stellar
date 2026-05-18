@@ -70,7 +70,7 @@ class laboratorium(base):
             print("distribusi energi berhasil !")
     @property
     def info(self):
-        return f"Laboratorium: Tekanan udara: {self.tekanan_udara} kPa, Energi: {self.energi} kWh"
+        return f"Laboratorium: Tekanan udara: {self.tekanan_udara} kPa, Energi: {self.energi} kWh", f"Cadangan Energi: {self.__cadangan_energi} kWh"
     def darurat(self):
         self.energi = 0
         print("Sistem darurat laboratorium diaktifkan! semua energi di buang")
