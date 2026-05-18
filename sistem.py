@@ -34,6 +34,7 @@ class Hunian(base):
             else:
                 self.__cadangan_oksigen -= jumlah
                 self.__oksigen += jumlah
+                print(f"Berhasil")
     def darurat(self):
             print("Sistem darurat hunian diaktifkan!")
     def kondisi_aman(self):
@@ -66,6 +67,7 @@ class laboratorium(base):
         else:
             self.__cadangan_energi -= jumlah
             self.energi += jumlah
+            print(f"Berhasil")
     @property
     def info(self):
         return f"Laboratorium: Tekanan udara: {self.tekanan_udara} kPa, Energi: {self.energi} kWh", f"Cadangan Energi: {self.__cadangan_energi} kWh"
