@@ -1,10 +1,11 @@
-from sistem import laboratorium, Hunian, base
+from sistem import laboratorium, Hunian
 import time
-
+o1 = Hunian(cadangan_oksigen=60, oksigen=60)
+o2 = laboratorium(energi=40,cadangan_energi=60)
 def main():
 
     while True:
-        
+
         print("== Stellar base ==")
         print("1. Cek Status")
         print("2. Distribusi Oksigen dan energi")
@@ -15,27 +16,29 @@ def main():
         match pilihan:
             case "1":        
                 print("== Status ==")
-                print(Hunian.info())
-                print(laboratorium.info())
+                print(o1.info)
+                print(o2.info)
             case "2": 
                 print("== Distribusi Oksigen dan Energi ==")
                 distribusi_oksigen = int(input("Masukkan jumlah oksigen yang akan didistribusikan (liter): "))
-                Hunian.distribusi_oksigen = distribusi_oksigen
+                o1.distribusi_oksigen = distribusi_oksigen
                 distribusi_energi = int(input("Masukkan jumlah energi yang akan didistribusikan (kWh): "))
-                laboratorium.distribusi_energi = distribusi_energi
+                o2.distribusi_energi = distribusi_energi
                 time.sleep(3) 
                 print("Distribusi oksigen dan energi sedang berlangsung...")
             case "3":                  
                 print("== Mode Darurat ==")
                 darurat = input("Aktifkan mode darurat? (y/n): ")
                 if darurat.lower() == 'y':
-                    Hunian.darurat()
-                    laboratorium.darurat()
+                    o1.darurat()
+                    o2.darurat()
                 print("Mode darurat diaktifkan! Semua sistem berjalan dengan prioritas tinggi!")
             case "4":
                 print("== Cek Kondisi Aman ==")
-                Hunian.kondisi_aman()
-                laboratorium.kondisi_aman()
+                o1.kondisi_aman()
+                o2.kondisi_aman()
             case "5":                  
                 print("Keluar dari program. Sampai jumpa!")
                 break
+if __name__ == "__main__":
+    main()

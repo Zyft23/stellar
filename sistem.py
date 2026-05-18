@@ -50,16 +50,25 @@ class Hunian(base):
 
 
 class laboratorium(base):
-    def __init__(self, energi):
+    def __init__(self, energi,cadangan_energi):
         super().__init__(tekanan_udara=101.3)
         self.energi = energi
+        self.__cadangan_energi = cadangan_energi
+        
+    @property
+    def distribusi_energi(self):
+        return self.energi
+    @distribusi_energi.setter
     def distribusi_energi(self, jumlah):
         if self.energi + jumlah > 100:
             print("Peringatan: Energi akan melebihi batas maksimum!")
+        elif jumlah > self.__cadangan_energi:
+            print("Tidak cukup cadangan energi!")
         else:
+            self.__cadangan_energi -= jumlah
             self.energi += jumlah
             print("distribusi energi berhasil !")
-            
+    @property
     def info(self):
         return f"Laboratorium: Tekanan udara: {self.tekanan_udara} kPa, Energi: {self.energi} kWh"
     def darurat(self):
