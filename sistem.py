@@ -36,8 +36,11 @@ class Hunian(base):
                 self.__oksigen += jumlah
                 print(f"Berhasil")
     def darurat(self):
-        self.__oksigen += 20
-        self.__cadangan_oksigen -= 20
+        if self.__cadangan_oksigen < 20:
+            print("Peringatan: Cadangan oksigen hampir habis! di hunian")
+        else:
+            self.__oksigen += 20
+            self.__cadangan_oksigen -= 20
     def kondisi_aman(self):
         if self.tekanan_udara > 110:
             print("Peringatan: Tekanan udara terlalu tinggi! di hunian")

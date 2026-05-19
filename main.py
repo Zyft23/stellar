@@ -45,7 +45,7 @@ def main():
                     o1.darurat()
                     time.sleep(1)
                     o2.darurat()
-                    print("Mode darurat diaktifkan! Semua sistem berjalan dengan prioritas tinggi!")
+                    print("Mode darurat diaktifkan! Hunian mendapatkan tambahan oksigen, dan laboratorium di kosongkan energi.")
                     time.sleep(1)
                 elif darurat.lower() == 'n':
                     print("Mode darurat dibatalkan.")
